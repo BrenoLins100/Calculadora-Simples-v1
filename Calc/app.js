@@ -281,4 +281,43 @@ window.addEventListener('load', ()=>{
         })
     }
     
+    //Modo noturno e modo dia
+
+    var button = document.querySelector('.switch');
+    button.addEventListener('click', ()=>{
+
+        var toggle = document.querySelector('.toggle');
+        var visorCalc = document.querySelector('.visorCalc');
+        var body = document.body;
+        var box = document.querySelectorAll('.box');
+
+        
+        if(toggle.className === 'toggle'){
+            toggle.classList.add('active');
+            visorCalc.classList.add('light');
+            button.classList.add('light');
+            body.classList.add('light');
+            
+            box.forEach((e)=>{
+                e.style.border = "2px solid #222";
+                e.style.color = "#222";
+                e.style.transition = "all 900ms cubic-bezier(0, 0, 0.2, 1)";
+            })
+            
+
+
+        }else{
+            toggle.classList.remove('active');
+            visorCalc.classList.remove('light');
+            button.classList.remove('light');
+            body.classList.remove('light');
+            
+            box.forEach((e)=>{
+                e.style.border = "2px solid #2ecc71";
+                e.style.color = "#2ecc71";
+            })
+
+        }
+    })
+
 })
